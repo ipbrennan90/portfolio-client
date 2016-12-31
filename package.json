@@ -4,13 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha <--compile></--compile>rs js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
+		"test:watch": "npm run test -- --watch",
+		"server": "webpack-dev-server"
   },
   "keywords": [],
   "author": "Ian Brennan <ian@barbershop.io> (http://barbershop.io)",
   "license": "ISC",
   "devDependencies": {
+    "chai-immutable": "1.6.0",
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "dependencies": {
+    "immutable": "3.8.1"
   }
 }
