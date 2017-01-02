@@ -1,4 +1,5 @@
 import React, {PureComponent, PropTypes} from 'react';
+import {connect} from 'react-redux';
 import Winner from './Winner';
 import Vote from './Vote'
 

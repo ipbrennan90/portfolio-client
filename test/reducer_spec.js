@@ -11,7 +11,7 @@ describe('reducer', () => {
 			state: Map({
 				vote: Map({
 					pair: List.of('Trainspotting', '28 Days Later'),
-					tally: Map({'Trainspotting': 1})
+					tally: Map({Trainspotting: 1})
 				})
 			})
 		};
@@ -20,7 +20,7 @@ describe('reducer', () => {
 		expect(nextState).to.equal(fromJS({
 			vote: {
 				pair: ['Trainspotting', '28 Days Later'],
-				tally: {'Trainspotting': 1}
+				tally: {Trainspotting: 1}
 			}
 		}));
 	});
@@ -32,7 +32,7 @@ describe('reducer', () => {
 			state: {
 				vote: {
 					pair: ['Trainspotting', '28 Days Later'],
-					tally: {'Trainspotting': 1}
+					tally: {Trainspotting: 1}
 				}
 			}
 		};
@@ -41,7 +41,7 @@ describe('reducer', () => {
 		expect(nextState).to.equal(fromJS({
 			vote : {
 				pair: ['Trainspotting', '28 Days Later'],
-				tally: {'Trainspotting': 1}
+				tally: {Trainspotting: 1}
 			}
 		}));
 	});
@@ -52,7 +52,7 @@ describe('reducer', () => {
 			state: {
 				vote: {
 					pair: ['Trainspotting', '28 Days Later'],
-					tally: {'Trainspotting': 1}
+					tally: {Trainspotting: 1}
 				}
 			}
 		};
@@ -61,7 +61,7 @@ describe('reducer', () => {
 		expect(nextState).to.equal(fromJS({
 			vote: {
 				pair: ['Trainspotting', '28 Days Later'],
-				tally: {'Trainspotting': 1}
+				tally: {Trainspotting: 1}
 			}
 		}));
 	});
