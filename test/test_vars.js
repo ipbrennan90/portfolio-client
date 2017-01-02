@@ -1,5 +1,6 @@
 import Voting from '../src/components/Voting';
 import React from 'react';
+import {List} from 'immutable';
 import {renderIntoDocument} from 'react-addons-test-utils';
 
 
@@ -9,4 +10,4 @@ export default function votingComponent(props) {
 	)
 }
 
-export const pairOne = ['Trainspotting', '28 Days Later']
+export const pairOne = List.of('Trainspotting', '28 Days Later')

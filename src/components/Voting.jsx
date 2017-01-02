@@ -6,7 +6,7 @@ export default class Voting extends PureComponent {
 
 	static propTypes = {
 		winner: PropTypes.string,
-		pair: PropTypes.array,
+		pair: PropTypes.object,
 		hasVoted: PropTypes.string,
 	}
 

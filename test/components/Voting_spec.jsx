@@ -45,7 +45,7 @@ describe('Voting', () => {
 		const props = {
 			pair: pairOne,
 			vote: (entry) => votedWith = entry,
-			hasVoted: pairOne[0]
+			hasVoted: pairOne.get(0)
 		}
 		const component = votingComponent(props)
 		const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
@@ -55,9 +55,10 @@ describe('Voting', () => {
 	});
 
 	it('adds label to the voted entry', () => {
+		console.log(pairOne);
 		const props = {
 			pair: pairOne,
-			hasVoted: pairOne[0]
+			hasVoted: pairOne.get(0)
 		}
 		const component = votingComponent(props);
 		const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
