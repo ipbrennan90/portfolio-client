@@ -6,6 +6,7 @@ import {
 	Simulate
 } from 'react-addons-test-utils';
 import {expect} from 'chai';
+import {List} from 'immutable';
 import Voting from '../../src/components/Voting';
 import Vote from '../../src/components/Vote'
 import votingComponent, {pairOne} from '../test_vars';
@@ -72,5 +73,45 @@ describe('Voting', () => {
 		expect(buttons.length).to.equal(0);
 		expect(winner).to.be.ok;
 		expect(winner.textContent).to.contain('Trainspotting');
+	})
+
+	it('renders as a pure component', () => {
+		const pair = pairOne;
+		const container = document.createElement('div');
+		let component = ReactDOM.render(
+			<Voting pair={pair} />,
+			container
+		);
+		let firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
+		expect(firstButton.textContent).to.equal('Trainspotting');
+
+		// instead of renderIntoDocument we're manually constructing parent <div>
+		// and rendering into it twice so that we can simulate re-rendering
+		pair[0] = 'Sunshine';
+		component = ReactDOM.render(
+			<Voting pair={pair} />,
+			container
+		);
+		firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
+		expect(firstButton.textContent).to.equal('Trainspotting');
+	});
+
+	it('does update DOM when prop changes', () => {
+		const pair = List.of('Trainspotting', '28 Days Later');
+		const container = document.createElement('div');
+		let component = ReactDOM.render(
+			<Voting pair={pair} />,
+			container
+		)
+		let firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
+		expect(firstButton.textContent).to.equal('Trainspotting');
+
+		const newPair = pair.set(0, 'Sunshine');
+		component = ReactDOM.render(
+			<Voting pair={newPair}/>,
+			container
+		);
+		firstButton = scryRenderedDOMComponentsWithTag(component, 'button')[0];
+		expect(firstButton.textContent).to.equal('Sunshine');
 	})
 });

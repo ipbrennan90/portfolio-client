@@ -1,8 +1,8 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PureComponent, PropTypes} from 'react';
 import Winner from './Winner';
 import Vote from './Vote'
 
-export default class Voting extends Component {
+export default class Voting extends PureComponent {
 
 	static propTypes = {
 		winner: PropTypes.string,
@@ -21,7 +21,7 @@ export default class Voting extends Component {
 				{this.props.winner ?
 					<Winner ref={(winner) => this.winner = winner}
 									winner={this.props.winner}/> :
-					<Vote {...this.props}/> 
+					<Vote {...this.props}/>
 				}
 			</div>
 		)
