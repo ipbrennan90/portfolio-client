@@ -1,5 +1,5 @@
 import React, {Component} from 'react' ;
-import {List} from 'immutable';
+import {List, Map} from 'immutable';
 
 const pair = ['Trainspotting', '28 Days Later'];
 const tally = Map({'Trainspotting': 5, '28 Days Later': 4});

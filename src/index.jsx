@@ -22,11 +22,13 @@ store.dispatch({
 })
 
 ReactDOM.render(
+	<Provider store={store}>
 		<Router history={hashHistory}>
 			<Route component={App}>
 				<Route path="/results" component={Results}/>
 				<Route path="/" component={Voting}/>
 			</Route>
-		</Router>,
+		</Router>
+	</Provider>,
 	document.getElementById('app')
 )
