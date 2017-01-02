@@ -4,6 +4,7 @@ export default class Vote extends Component {
 	static PropTypes = {
 		pair: PropTypes.array,
 		hasVoted: PropTypes.string,
+		vote: PropTypes.function
 	}
 
 	_getPair() {

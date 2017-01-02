@@ -24,6 +24,10 @@ module.exports = {
 		hot: true
   },
 	plugins: [
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		["module-alias", [{
+		"src": "./src/components",
+		"expose": "components"},
+		}]]
 	]
 };
