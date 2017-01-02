@@ -1,10 +1,10 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PureComponent, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Winner from './Winner';
 import Vote from './Vote'
 
 @connect((state) => ({ pair: state.getIn(['vote', 'pair']), winner: state.get('winner')}))
-export default class Voting extends Component {
+export default class Voting extends PureComponent {
 
 	static propTypes = {
 		winner: PropTypes.string,

@@ -1,6 +1,13 @@
 import React, {PureComponent, PropTypes} from 'react';
 import Winner from './Winner';
+import {connect} from 'react-redux';
 
+
+@connect((state) => ({
+	pair: state.getIn(['vote', 'pair']),
+	tally: state.getIn(['vote', 'tally']),
+	winner: state.get('winner')
+}))
 export default class Results extends PureComponent {
 	static propTypes = {
 		pair: PropTypes.object,
