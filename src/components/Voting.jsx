@@ -8,7 +8,6 @@ export default class Voting extends PureComponent {
 		winner: PropTypes.string,
 		pair: PropTypes.array,
 		hasVoted: PropTypes.string,
-		vote: PropTypes.function
 	}
 
 	constructor(props) {

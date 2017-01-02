@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 module.exports = {
   entry: [
 		'webpack-dev-server/client?http://localhost:8080',
@@ -13,7 +14,7 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['', '.js', '.jsx']
-	}
+	},
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
@@ -24,10 +25,6 @@ module.exports = {
 		hot: true
   },
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-		["module-alias", [{
-		"src": "./src/components",
-		"expose": "components"},
-		}]]
+		new webpack.HotModuleReplacementPlugin()
 	]
 };
