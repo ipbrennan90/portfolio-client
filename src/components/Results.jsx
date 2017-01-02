@@ -1,8 +1,10 @@
 import React, {PureComponent, PropTypes} from 'react';
+import Winner from './Winner';
 
 export default class Results extends PureComponent {
 	static propTypes = {
-		pair: PropTypes.array
+		pair: PropTypes.object,
+		winner: PropTypes.string
 	}
 
 	_getPair() {
@@ -19,22 +21,27 @@ export default class Results extends PureComponent {
 	render() {
 		console.log('IN RESULTS');
 		return (
-			<div className="results">
-				<div className="tally">
-					{this._getPair().map(entry =>
-						<div key={entry} className="entry">
-							<h1>{entry}</h1>
-							<div className="voteCount">
-								{this._getVotes(entry)}
-							</div>
+			<div>
+				{this.props.winner ?
+					<Winner ref={(winner) => this.winner = winner} winner={this.props.winner} /> :
+					<div className="results">
+						<div className="tally">
+							{this._getPair().map(entry =>
+								<div key={entry} className="entry">
+									<h1>{entry}</h1>
+									<div className="voteCount">
+										{this._getVotes(entry)}
+									</div>
+								</div>
+							)}
 						</div>
-					)}
-				</div>
-				<div className="management">
-					<button ref={(next) => this.next = next} className="next" onClick={this.props.next}>
-						Next
-					</button>
-				</div>
+						<div className="management">
+							<button ref={(next) => this.next = next} className="next" onClick={this.props.next}>
+								Next
+							</button>
+						</div>
+					</div>
+				}
 			</div>
 		)
 	}
