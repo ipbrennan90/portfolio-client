@@ -24,8 +24,8 @@
       "stage-0"
     ],
     "plugins": [
+			"transform-decorators-legacy",
       "add-module-exports",
-      "transform-decorators-legacy",
       [
         "module-alias",
         [
@@ -47,7 +47,10 @@
     "babel-preset-react": "6.16.0",
     "babel-preset-stage-0": "6.16.0",
     "babel-register": "6.18.0",
+    "chai": "3.5.0",
     "immutable": "3.8.1",
+    "jsdom": "9.9.1",
+    "mocha": "3.2.0",
     "react": "15.4.1",
     "react-addons-test-utils": "15.4.1",
     "react-dom": "15.4.1",

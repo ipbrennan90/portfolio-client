@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import Winner from './Winner';
 import Vote from './Vote'
 
-@connect((state) => ({ pair: state.getIn(['vote', 'pair']), winner: state.get('winner')}))
-export default class Voting extends PureComponent {
+// @connect((state) => ({ pair: state.getIn(['vote', 'pair']), winner: state.get('winner')}))
+class Voting extends PureComponent {
 
 	static propTypes = {
 		winner: PropTypes.string,
@@ -28,3 +28,13 @@ export default class Voting extends PureComponent {
 		)
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		pair: state.getIn(['vote', 'pair']),
+		winner: state.get('winner')
+	}
+}
+
+export {Voting};
+export default connect(mapStateToProps)(Voting);
