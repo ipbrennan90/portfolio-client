@@ -1,4 +1,4 @@
-import Voting from '../src/components/Voting';
+import {Voting} from '../src/components/Voting';
 import React from 'react';
 import {List} from 'immutable';
 import {renderIntoDocument} from 'react-addons-test-utils';
