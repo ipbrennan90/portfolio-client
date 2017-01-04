@@ -8,7 +8,7 @@ class Voting extends PureComponent {
 
 	static propTypes = {
 		winner: PropTypes.string,
-		pair: PropTypes.object,
+		pair: PropTypes.array,
 		hasVoted: PropTypes.string,
 	}
 
@@ -32,7 +32,8 @@ class Voting extends PureComponent {
 function mapStateToProps(state) {
 	return {
 		pair: state.getIn(['vote', 'pair']),
-		winner: state.get('winner')
+		winner: state.get('winner'),
+		hasVoted: state.get('hasVoted')
 	}
 }
 
