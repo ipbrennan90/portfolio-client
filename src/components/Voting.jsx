@@ -1,14 +1,15 @@
 import React, {PureComponent, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Winner from './Winner';
-import Vote from './Vote'
+import Vote from './Vote';
+import * as actionCreators from '../action_creators';
 
 // @connect((state) => ({ pair: state.getIn(['vote', 'pair']), winner: state.get('winner')}))
 class Voting extends PureComponent {
 
 	static propTypes = {
 		winner: PropTypes.string,
-		pair: PropTypes.array,
+		pair: PropTypes.object,
 		hasVoted: PropTypes.string,
 	}
 
@@ -38,4 +39,4 @@ function mapStateToProps(state) {
 }
 
 export {Voting};
-export default connect(mapStateToProps)(Voting);
+export default connect(mapStateToProps, actionCreators)(Voting);

@@ -1,10 +1,12 @@
 import {Map, List} from 'immutable';
 
 function setState(state, newState){
+	console.log(newState)
 	return state.merge(newState);
 }
 
 function vote(state, entry) {
+	console.log('VOTED');
 	const currentPair = state.getIn(['vote', 'pair'])
 	if(currentPair.includes(entry)){
 		return state.set('hasVoted', entry);
@@ -14,10 +16,11 @@ function vote(state, entry) {
 }
 
 function resetVote(state) {
+	console.log('RESETTING VOTE')
 	const hasVoted = state.get('hasVoted')
 	const currentPair = state.getIn(['vote', 'pair'], List());
 	console.log(currentPair)
-	if(!currentPair.includes(hasVoted)) {
+	if(hasVoted && !currentPair.includes(hasVoted)) {
 		return state.remove('hasVoted')
 	} else {
 		return state

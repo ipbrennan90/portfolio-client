@@ -24,7 +24,7 @@
       "stage-0"
     ],
     "plugins": [
-			"transform-decorators-legacy",
+      "transform-decorators-legacy",
       "add-module-exports",
       [
         "module-alias",

@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 // }))
 class Results extends PureComponent {
 	static propTypes = {
-		pair: PropTypes.array,
+		pair: PropTypes.object,
 		winner: PropTypes.string
 	}
 
